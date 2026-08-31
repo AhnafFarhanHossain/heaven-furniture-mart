@@ -27,7 +27,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="w-full">
+      <div className="w-full p-6 md:p-8">
         <img
           src="/hero-furniture.png"
           alt="Living room furniture collection"
