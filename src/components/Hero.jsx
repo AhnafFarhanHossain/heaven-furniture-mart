@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section className="w-full bg-[#F4F1EA] pt-12 pb-0">
       <div className="w-full px-6 md:px-8 flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
-        <h1 className="text-[42px] sm:text-[56px] md:text-[64px] lg:text-[72px] leading-[95%] tracking-[-0.04em] text-[#242424] font-light">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[95%] tracking-tight text-[#242424] font-light">
           Furniture that starts with{' '}
           <span className="font-serif italic font-normal text-[#4A3B31]">you</span>
         </h1>
@@ -12,7 +12,7 @@ export default function Hero() {
         <div className="shrink-0 mb-1">
           <a
             href="#products"
-            className="inline-flex items-center justify-between w-[243px] h-[32px] bg-[#4A3B31] text-[#FFFFFF] px-3.5 hover:bg-[#3d3027] transition-colors"
+            className="inline-flex items-center justify-between w-60 h-8 bg-[#4A3B31] text-white px-3.5 hover:bg-[#3d3027] transition-colors"
           >
             <div className="flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full border border-[#F4F1EA]" />
@@ -20,7 +20,7 @@ export default function Hero() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M1 3h11m-3-2l3 2-3 2" />
               </svg>
             </div>
-            <span className="text-[16px] font-light tracking-[-0.04em] underline text-white">
+            <span className="text-base font-light tracking-tight underline text-white">
               Our collection
             </span>
           </a>
@@ -29,7 +29,7 @@ export default function Hero() {
 
       <div className="w-full p-6 md:p-8">
         <img
-          src="/hero-furniture.png"
+          src="/hero-furniture.webp"
           alt="Living room furniture collection"
           className="w-full h-auto object-cover block"
         />

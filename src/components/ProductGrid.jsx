@@ -1,53 +1,53 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 
 const products = [
   {
     id: 1,
     name: 'Luxurious Queen-sized Bed',
     price: '9.99 Lac BDT',
-    image: '/product-queen-bed.png',
+    image: '/product-queen-bed.webp',
   },
   {
     id: 2,
     name: 'Deluxe Couch Set',
     price: '9.99 Lac BDT',
-    image: '/product-couch-set.png',
+    image: '/product-couch-set.webp',
   },
   {
     id: 3,
     name: 'Premium Desk Mirror',
     price: '9.99 Lac BDT',
-    image: '/product-desk-mirror.png',
+    image: '/product-desk-mirror.webp',
   },
   {
     id: 4,
     name: 'Large Dining Table',
     price: '9.99 Lac BDT',
-    image: '/product-dining-table.png',
+    image: '/product-dining-table.webp',
   },
   {
     id: 5,
     name: 'Handcrafted Bouclé Armchair',
     price: '9.99 Lac BDT',
-    image: '/product-boucle-armchair.png',
+    image: '/product-boucle-armchair.webp',
   },
   {
     id: 6,
     name: 'Organic Travertine Coffee Table',
     price: '9.99 Lac BDT',
-    image: '/product-travertine-table.png',
+    image: '/product-travertine-table.webp',
   },
   {
     id: 7,
     name: 'Slatted Walnut Tambour Credenza',
     price: '9.99 Lac BDT',
-    image: '/product-walnut-credenza.png',
+    image: '/product-walnut-credenza.webp',
   },
   {
     id: 8,
     name: 'Sculptural Velvet Chaise Lounge',
     price: '9.99 Lac BDT',
-    image: '/product-velvet-chaise.png',
+    image: '/product-velvet-chaise.webp',
   },
 ];
 
@@ -68,9 +68,56 @@ function Stars() {
 }
 
 export default function ProductGrid() {
+  const scrollRef = useRef(null);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const handleWheel = (e) => {
+      // If user is using native horizontal trackpad gesture, let it handle natively
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+        return;
+      }
+
+      const { scrollLeft, scrollWidth, clientWidth } = el;
+      const maxScrollLeft = scrollWidth - clientWidth;
+
+      if (maxScrollLeft <= 0) return;
+
+      const isScrollingDown = e.deltaY > 0;
+      const isScrollingUp = e.deltaY < 0;
+
+      const canScrollRight = isScrollingDown && scrollLeft < maxScrollLeft - 2;
+      const canScrollLeft = isScrollingUp && scrollLeft > 2;
+
+      if (canScrollRight || canScrollLeft) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (e.stopImmediatePropagation) {
+          e.stopImmediatePropagation();
+        }
+        e.lenisStopPropagation = true;
+
+        el.scrollLeft += e.deltaY;
+      }
+      // When reaching the end or start, we don't block the event,
+      // allowing Lenis to seamlessly continue scrolling the page vertically!
+    };
+
+    el.addEventListener('wheel', handleWheel, { capture: true, passive: false });
+
+    return () => {
+      el.removeEventListener('wheel', handleWheel, { capture: true });
+    };
+  }, []);
+
   return (
     <section id="products" className="w-full bg-[#F4F1EA]">
-      <div className="w-full flex overflow-x-auto custom-scrollbar border-t border-b border-[#4A3B31]/30">
+      <div
+        ref={scrollRef}
+        className="w-full flex overflow-x-auto custom-scrollbar border-t border-b border-[#4A3B31]/30"
+      >
         {products.map((item, idx) => (
           <div
             key={item.id}
@@ -91,10 +138,10 @@ export default function ProductGrid() {
               <Stars />
               <div className="flex items-end justify-between">
                 <div>
-                  <h3 className="text-[16px] font-bold text-[#242424] tracking-[-0.04em]">
+                  <h3 className="text-base font-bold text-[#242424] tracking-tight">
                     {item.name}
                   </h3>
-                  <p className="text-[16px] font-light text-[#242424] tracking-[-0.04em]">
+                  <p className="text-base font-light text-[#242424] tracking-tight">
                     {item.price}
                   </p>
                 </div>

@@ -30,11 +30,11 @@ export default function FaqContact() {
     <section id="faqs" className="w-full bg-[#F4F1EA] py-16 sm:py-24 md:py-36 2xl:py-44 px-4 sm:px-6 md:px-12 2xl:px-16">
       <div className="w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-16 items-start">
         <div className="lg:col-span-7">
-          <h2 className="font-serif font-light text-[40px] sm:text-[64px] md:text-[80px] lg:text-[96px] leading-[95%] tracking-[-0.06em] text-[#4A3B31] mb-6 sm:mb-10 md:mb-12">
+          <h2 className="font-serif font-light text-4xl sm:text-6xl md:text-7xl lg:text-8xl leading-[95%] tracking-tighter text-[#4A3B31] mb-6 sm:mb-10 md:mb-12">
             Faq’s
           </h2>
 
-          <div className="w-full max-w-[744px] divide-y divide-[#4A3B31] border-t border-b border-[#4A3B31]">
+          <div className="w-full max-w-3xl divide-y divide-[#4A3B31] border-t border-b border-[#4A3B31]">
             {faqItems.map((item) => {
               const isOpen = openId === item.id;
               return (
@@ -44,7 +44,7 @@ export default function FaqContact() {
                     onClick={() => setOpenId(isOpen ? null : item.id)}
                     className="w-full flex items-center justify-between text-left cursor-pointer"
                   >
-                    <span className="font-serif font-light text-[17px] sm:text-[20px] md:text-[24px] text-[#4A3B31] tracking-[-0.03em] pr-2">
+                    <span className="font-serif font-light text-lg sm:text-xl md:text-2xl text-[#4A3B31] tracking-tight pr-2">
                       {item.question}
                     </span>
                     <span className="ml-2 sm:ml-4 text-[#4A3B31] shrink-0">
@@ -61,8 +61,8 @@ export default function FaqContact() {
                   </button>
 
                   {isOpen && (
-                    <div className="pt-3 sm:pt-4 pr-4 sm:pr-6 max-w-[373px]">
-                      <p className="text-[13px] sm:text-[15px] md:text-[16px] text-[#242424] font-light leading-normal tracking-[-0.04em]">
+                    <div className="pt-3 sm:pt-4 pr-4 sm:pr-6 max-w-sm">
+                      <p className="text-sm md:text-base text-[#242424] font-light leading-normal tracking-tight">
                         {item.answer}
                       </p>
                     </div>
@@ -74,65 +74,65 @@ export default function FaqContact() {
         </div>
 
         <div id="contact" className="lg:col-span-5 flex flex-col items-start lg:items-end">
-          <div className="w-full max-w-[384px] h-[160px] sm:h-[216px] overflow-hidden mb-6 sm:mb-8">
+          <div className="w-full max-w-sm h-40 sm:h-54 overflow-hidden mb-6 sm:mb-8">
             <img
-              src="/workshop-craftsmanship.png"
+              src="/workshop-craftsmanship.webp"
               alt="Heaven Furniture Mart Workshop"
               className="w-full h-full object-cover"
             />
           </div>
 
-          <p className="text-[14px] sm:text-[16px] text-[#4A3B31] font-light tracking-[-0.04em] mb-4 w-full max-w-[345px]">
+          <p className="text-sm sm:text-base text-[#4A3B31] font-light tracking-tight mb-4 w-full max-w-sm">
             Got any questions left unanswered?
           </p>
 
-          <div className="w-full max-w-[345px] bg-[#F4F1EA] border border-[#4A3B31] p-4 sm:p-6">
+          <div className="w-full sm:max-w-sm bg-[#F4F1EA] border border-[#4A3B31] p-4 sm:p-6">
             <div className="mb-4 sm:mb-6">
-              <h3 className="font-serif font-light text-[15px] sm:text-[16px] text-[#4A3B31] tracking-[-0.04em]">
+              <h3 className="font-serif font-light text-sm sm:text-base text-[#4A3B31] tracking-tight">
                 Ask us anything
               </h3>
-              <p className="text-[11px] sm:text-[12px] text-[#808080] font-light mt-0.5 sm:mt-1 tracking-[-0.04em]">
+              <p className="text-xs text-[#808080] font-light mt-0.5 sm:mt-1 tracking-tight">
                 We'll get back within a day.
               </p>
             </div>
 
             <form onSubmit={(e) => e.preventDefault()} className="space-y-3 sm:space-y-4">
               <div>
-                <label className="block font-serif font-light text-[14px] sm:text-[16px] text-[#4A3B31] mb-1 tracking-[-0.04em]">
+                <label className="block font-serif font-light text-sm sm:text-base text-[#4A3B31] mb-1 tracking-tight">
                   Name
                 </label>
                 <input
                   type="text"
                   placeholder="Your name"
-                  className="w-full bg-[#F4F1EA] border border-[#4A3B31] px-3 py-1.5 sm:py-2 text-[11px] sm:text-[12px] text-[#242424] placeholder-[#808080] font-light tracking-[-0.04em] focus:outline-none"
+                  className="w-full bg-[#F4F1EA] border border-[#4A3B31] px-3 py-1.5 sm:py-2 text-xs text-[#242424] placeholder-[#808080] font-light tracking-tight focus:outline-none"
                 />
               </div>
 
               <div>
-                <label className="block font-serif font-light text-[14px] sm:text-[16px] text-[#4A3B31] mb-1 tracking-[-0.04em]">
+                <label className="block font-serif font-light text-sm sm:text-base text-[#4A3B31] mb-1 tracking-tight">
                   Email
                 </label>
                 <input
                   type="email"
                   placeholder="you@email.com"
-                  className="w-full bg-[#F4F1EA] border border-[#4A3B31] px-3 py-1.5 sm:py-2 text-[11px] sm:text-[12px] text-[#242424] placeholder-[#808080] font-light tracking-[-0.04em] focus:outline-none"
+                  className="w-full bg-[#F4F1EA] border border-[#4A3B31] px-3 py-1.5 sm:py-2 text-xs text-[#242424] placeholder-[#808080] font-light tracking-tight focus:outline-none"
                 />
               </div>
 
               <div>
-                <label className="block font-serif font-light text-[14px] sm:text-[16px] text-[#4A3B31] mb-1 tracking-[-0.04em]">
+                <label className="block font-serif font-light text-sm sm:text-base text-[#4A3B31] mb-1 tracking-tight">
                   Question
                 </label>
                 <textarea
                   rows="3"
                   placeholder="Tell us what you're looking for..."
-                  className="w-full bg-[#F4F1EA] border border-[#4A3B31] p-2.5 sm:p-3 text-[11px] sm:text-[12px] text-[#242424] placeholder-[#808080] font-light resize-none tracking-[-0.04em] focus:outline-none"
+                  className="w-full bg-[#F4F1EA] border border-[#4A3B31] p-2.5 sm:p-3 text-xs text-[#242424] placeholder-[#808080] font-light resize-none tracking-tight focus:outline-none"
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="w-full h-[32px] bg-[#4A3B31] text-[#FFFFFF] text-[14px] sm:text-[16px] font-light tracking-[-0.04em] flex items-center justify-center underline cursor-pointer hover:bg-[#3d3027] transition-colors"
+                className="w-full h-8 bg-[#4A3B31] text-white text-sm sm:text-base font-light tracking-tight flex items-center justify-center underline cursor-pointer hover:bg-[#3d3027] transition-colors"
               >
                 Send
               </button>

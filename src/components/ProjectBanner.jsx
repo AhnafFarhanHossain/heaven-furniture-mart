@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
 const bannerImages = [
-  { id: 1, src: '/project-remontada-1.jpg', alt: 'Project Remontada 1' },
-  { id: 2, src: '/project-remontada-2.jpg', alt: 'Project Remontada 2' },
-  { id: 3, src: '/project-remontada-3.jpg', alt: 'Project Remontada 3' },
-  { id: 4, src: '/project-remontada-4.jpg', alt: 'Project Remontada 4' },
+  { id: 1, src: '/project-remontada-1.webp', alt: 'Project Remontada 1' },
+  { id: 2, src: '/project-remontada-2.webp', alt: 'Project Remontada 2' },
+  { id: 3, src: '/project-remontada-3.webp', alt: 'Project Remontada 3' },
+  { id: 4, src: '/project-remontada-4.webp', alt: 'Project Remontada 4' },
 ];
 
 export default function ProjectBanner() {
@@ -31,7 +31,7 @@ export default function ProjectBanner() {
           />
         ))}
 
-        <div className="absolute bottom-8 left-6 md:left-[8.5%] flex items-center gap-2 z-10">
+        <div className="absolute top-6 left-6 md:top-auto md:bottom-8 md:left-[8.5%] flex items-center gap-2 z-10">
           {bannerImages.map((_, idx) => (
             <button
               key={idx}
@@ -46,10 +46,10 @@ export default function ProjectBanner() {
         </div>
 
         <div className="absolute bottom-8 right-6 md:right-[8.5%] text-right z-10">
-          <p className="text-[16px] font-medium text-[#C9A882] mb-1 tracking-[-0.04em]">
+          <p className="text-base font-medium text-[#C9A882] mb-1 tracking-tight">
             Project Remontada
           </p>
-          <h2 className="font-serif text-[36px] sm:text-[44px] md:text-[48px] text-[#F4F1EA] font-light leading-[95%] tracking-[-0.06em]">
+          <h2 className="font-serif text-4xl sm:text-5xl text-[#F4F1EA] font-light leading-[95%] tracking-tighter">
             Luxury.{' '}
             <span className="italic font-medium text-[#F4F1EA]">Redefined</span>
           </h2>
