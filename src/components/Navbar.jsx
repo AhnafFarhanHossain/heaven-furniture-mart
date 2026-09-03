@@ -26,34 +26,28 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="w-full bg-[#F4F1EA] pt-4 px-6 sm:px-10 relative z-30">
+      <header className="w-full bg-[#F4F1EA] pt-4 sm:pt-6 px-6 sm:px-8 max-w-[1440px] mx-auto relative z-30">
         <div className="w-full flex items-center justify-between">
-          <a href="#" aria-label="Heaven Furniture Mart Home">
+          <a href="#" aria-label="Heaven Furniture Mart Home" className="hover:opacity-80 transition-opacity">
             <img
               src="/logo-black.webp"
               alt="Heaven Furniture Mart"
-              className="aspect-16/10 w-16 object-contain"
+              className="w-[clamp(3.5rem,5vw,4.5rem)] h-auto object-contain"
             />
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center text-sm text-[#242424] font-light tracking-tight">
-            <a href="#products" className="underline hover:opacity-75 transition-opacity">Products</a>
-            <span className="mx-1">, </span>
-            <a href="#gallery" className="hover:underline hover:opacity-75 transition-opacity">Gallery</a>
-            <span className="mx-1">, </span>
+          <nav className="hidden md:flex items-center text-[clamp(0.875rem,1.1vw,1rem)] gap-1.5 text-[#242424] font-light tracking-tight">
+            <a href="#products" className="underline underline-offset-2 hover:opacity-75 transition-opacity">Products,</a>
+            <a href="#gallery" className="hover:underline hover:opacity-75 transition-opacity">Gallery,</a>
             <a href="#reviews" className="hover:underline hover:opacity-75 transition-opacity">Reviews</a>
-            <span className="mx-1">, </span>
-            <a href="#vision" className="hover:underline hover:opacity-75 transition-opacity">Vision</a>
-            <span className="mx-1">, </span>
-            <a href="#faqs" className="hover:underline hover:opacity-75 transition-opacity">FAQs</a>
           </nav>
 
           {/* Mobile Menu Trigger */}
-          <div className="flex md:hidden items-center gap-5 text-xs tracking-wider uppercase font-medium text-[#242424]">
+          <div className="flex md:hidden items-center gap-4 text-xs tracking-wider uppercase font-medium text-[#242424]">
             <a
               href="#contact"
-              className="decoration-1 underline-offset-4 hover:opacity-75 transition-opacity tracking-tight"
+              className="decoration-1 underline underline-offset-4 hover:opacity-75 transition-opacity tracking-tight"
             >
               Inquire &rarr;
             </a>
