@@ -1,15 +1,16 @@
-import React, { useEffect } from 'react';
-import Lenis from 'lenis';
-import 'lenis/dist/lenis.css';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Manifesto from './components/Manifesto';
-import ProductGrid from './components/ProductGrid';
-import TestimonialGallery from './components/TestimonialGallery';
-import FaqContact from './components/FaqContact';
-import ProjectBanner from './components/ProjectBanner';
-import VisionTimeline from './components/VisionTimeline';
-import FooterShowroom from './components/FooterShowroom';
+import React, { useEffect } from "react";
+import Lenis from "lenis";
+import "lenis/dist/lenis.css";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Manifesto from "./components/Manifesto";
+import ProductGrid from "./components/ProductGrid";
+import TestimonialGallery from "./components/TestimonialGallery";
+import FaqContact from "./components/FaqContact";
+import ProjectBanner from "./components/ProjectBanner";
+import VisionTimeline from "./components/VisionTimeline";
+import FooterShowroom from "./components/FooterShowroom";
+import PreloaderSvg from "./Helper/PreloaderSvg";
 
 export default function App() {
   useEffect(() => {
@@ -26,19 +27,25 @@ export default function App() {
     };
   }, []);
 
+ 
   return (
-    <div className="w-full min-h-screen bg-[#F4F1EA] text-[#242424] font-sans">
-      <Navbar />
-      <main className="w-full">
-        <Hero />
-        <Manifesto />
-        <ProductGrid />
-        <TestimonialGallery />
-        <FaqContact />
-        <ProjectBanner />
-        <VisionTimeline />
-      </main>
-      <FooterShowroom />
-    </div>
+    <>
+      {/* <div className="w-full h-full fixed bg-[#F4F1EA]  top-[0px] left-0 z-50 preload">
+        <PreloaderSvg />
+      </div> */}
+      <div className="w-full min-h-screen main bg-[#F4F1EA] text-[#242424] font-sans">
+        <Navbar />
+        <main className="w-full">
+          <Hero />
+          <Manifesto />
+          <ProductGrid />
+          <TestimonialGallery />
+          <FaqContact />
+          <ProjectBanner />
+          <VisionTimeline />
+        </main>
+        <FooterShowroom />
+      </div>
+    </>
   );
 }

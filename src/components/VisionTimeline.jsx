@@ -1,42 +1,74 @@
-import React from 'react';
-
+import { useGSAP } from "@gsap/react";
+import gsap from "../Helper/gsap-config";
+import CollectionCta from "./CtaButton";
 const timeline = [
   {
-    year: '2020',
-    title: 'Founded by Abul Kalam Bhuiyan',
-    subtitle: '(Currently serving as Managing Director)',
+    year: "2020",
+    title: "Founded by Abul Kalam Bhuiyan",
+    subtitle: "(Currently serving as Managing Director)",
   },
   {
-    year: '2021',
-    title: 'Registered and Opened the Agrabad Showroom',
+    year: "2021",
+    title: "Registered and Opened the Agrabad Showroom",
   },
   {
-    year: '2024 & 2025',
-    title: 'Participated the International furniture fair Chattogram',
+    year: "2024 & 2025",
+    title: "Participated the International furniture fair Chattogram",
   },
   {
-    year: '2025',
-    title: 'Became member of Chamber of the Commerce',
+    year: "2025",
+    title: "Became member of Chamber of the Commerce",
   },
   {
-    year: '2026',
-    title: 'Received the BFIOA recognision nationwide',
+    year: "2026",
+    title: "Received the BFIOA recognision nationwide",
   },
 ];
 
 export default function VisionTimeline() {
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#vision",
+        start: "top bottom-=200",
+        end: "bottom center",
+        scrub: true,
+      },
+    });
+
+    tl.from(".left-vision", {
+      xPercent: -5,
+      duration: 2,
+      ease: "textEs",
+    });
+
+
+    tl.from(
+      ".right-vision",
+      {
+        xPercent: 5,
+        duration: 2,
+        ease: "textEs",
+      },
+      "<",
+    );
+  });
+
   return (
-    <section id="vision" className="w-full bg-[#F4F1EA] py-28 md:py-36 2xl:py-44 px-6 md:px-12 2xl:px-16">
+    <section
+      id="vision"
+      className="w-full bg-[#F4F1EA] py-28 md:py-36 2xl:py-44 px-6 md:px-12 2xl:px-16"
+    >
       <div className="w-full max-w-[1440px] 2xl:max-w-[1600px] mx-auto">
         <div className="w-full mb-20 md:mb-28 space-y-2">
-          <h2 className="font-serif font-extralight text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-none tracking-[-8%] text-[#242424] text-left md:pl-[8.5%]">
+          <h2 className="font-serif font-extralight left-vision  text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-none tracking-[-8%] text-[#242424] text-left md:pl-[8.5%]">
             Our sole purpose is to
           </h2>
-          <h2 className="font-serif font-extralight text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-none tracking-[-8%] text-[#242424] text-left md:pl-[25.3%]">
+          <h2 className="font-serif font-extralight center-vision text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-none tracking-[-8%] text-[#242424] text-left md:pl-[25.3%]">
             make sure that your house looks
           </h2>
-          <h2 className="font-serif font-extralight text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-none tracking-[-8%] text-[#242424] text-left md:pl-[50.7%]">
-            and feels like{' '}
+          <h2 className="font-serif font-extralight right-vision text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-none tracking-[-8%] text-[#242424] text-left md:pl-[50.7%]">
+            and feels like{" "}
             <span className="italic font-medium text-[#4A3B31]">home...</span>
           </h2>
         </div>
@@ -59,25 +91,14 @@ export default function VisionTimeline() {
           </div>
 
           <div className="lg:col-span-3 flex justify-start lg:justify-center">
-            <a
-              href="#contact"
-              className="inline-flex items-center justify-between w-60 h-8 bg-[#4A3B31] text-white px-3.5 hover:bg-[#3d3027] transition-colors"
-            >
-              <span className="text-base font-light tracking-tight underline">
-                Check out our Team
-              </span>
-              <div className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full border border-[#F4F1EA]" />
-                <svg className="w-3.5 h-2" fill="none" stroke="#F4F1EA" strokeWidth="1" viewBox="0 0 13 6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M1 3h11m-3-2l3 2-3 2" />
-                </svg>
-              </div>
-            </a>
+            <CollectionCta/>
           </div>
 
           <div className="lg:col-span-4 flex justify-start lg:justify-end">
             <p className="text-base text-[#242424] font-light leading-snug max-w-sm tracking-tight lg:text-right">
-              Heaven Furniture Mart is one of the leading bespoke furniture brands in Chattogram, known for crafting premium-quality custom furniture that blends elegance, comfort, and durability.
+              Heaven Furniture Mart is one of the leading bespoke furniture
+              brands in Chattogram, known for crafting premium-quality custom
+              furniture that blends elegance, comfort, and durability.
             </p>
           </div>
         </div>
@@ -85,5 +106,3 @@ export default function VisionTimeline() {
     </section>
   );
 }
-
-

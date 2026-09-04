@@ -35,7 +35,10 @@
     padding: 0;
     box-sizing: border-box;
   }
-
+html {
+  overflow-y: scroll; /* বা */
+  scrollbar-gutter: stable;
+}
   html,
   body {
     width: 100%;
@@ -63,6 +66,39 @@
   }
 }
 
+.lineChildren{
+  @apply px-2 
+}
+
+@media (min-width:768px) {
+  .line-anim::after{
+  @apply content-[""] absolute w-full h-0.5 bg-black left-0 -bottom-[1px] rounded-3xl scale-x-0 transition-transform duration-500 origin-right
+}
+
+.line-anim:hover::after{
+  @apply scale-x-100  origin-left
+}
+
+.cta-anim::after{
+  @apply content-[""] absolute w-full h-0.5 bg-white left-0 bottom-0 rounded-3xl scale-x-0 transition-transform duration-500 origin-right
+}
+
+.cta:hover .cta-anim::after{
+  @apply scale-x-100  origin-left
+}
+
+
+.faq-btn::after{
+  @apply content-[""] absolute w-full h-0.5 bg-white left-0 bottom-0 rounded-3xl scale-x-0 transition-transform duration-500 origin-right
+}
+
+.faq-link:hover .faq-btn::after{
+  @apply scale-x-100  origin-left
+}
+}
+
+
+
 .font-sentient {
   font-family: 'Sentient Variable', 'Sentient', Georgia, serif;
 }
@@ -84,6 +120,9 @@
   /* Firefox */
 }
 
+.lineChildren{
+  @apply pr-1 pb-2
+}
 .custom-scrollbar::-webkit-scrollbar {
   height: 3px;
 }
