@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
+import { LenisContext } from "./Helper/LenisContext";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Manifesto from "./components/Manifesto";
@@ -10,11 +11,12 @@ import FaqContact from "./components/FaqContact";
 import ProjectBanner from "./components/ProjectBanner";
 import VisionTimeline from "./components/VisionTimeline";
 import FooterShowroom from "./components/FooterShowroom";
-import PreloaderSvg from "./Helper/PreloaderSvg";
 
 export default function App() {
+  const lenisRef = useRef(null);
+
   useEffect(() => {
-    const lenis = new Lenis({
+    const lenisInstance = new Lenis({
       autoRaf: true,
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -22,17 +24,16 @@ export default function App() {
       touchMultiplier: 1.5,
     });
 
+    lenisRef.current = lenisInstance;
+
     return () => {
-      lenis.destroy();
+      lenisInstance.destroy();
+      lenisRef.current = null;
     };
   }, []);
 
- 
   return (
-    <>
-      {/* <div className="w-full h-full fixed bg-[#F4F1EA]  top-[0px] left-0 z-50 preload">
-        <PreloaderSvg />
-      </div> */}
+    <LenisContext.Provider value={lenisRef}>
       <div className="w-full min-h-screen main bg-[#F4F1EA] text-[#242424] font-sans">
         <Navbar />
         <main className="w-full">
@@ -46,6 +47,6 @@ export default function App() {
         </main>
         <FooterShowroom />
       </div>
-    </>
+    </LenisContext.Provider>
   );
 }

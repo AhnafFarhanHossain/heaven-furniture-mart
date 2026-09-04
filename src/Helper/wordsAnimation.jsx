@@ -1,4 +1,3 @@
-// Helper/wordsAnimation.js
 "use client";
 
 import { useGSAP } from "@gsap/react";
@@ -12,7 +11,6 @@ function resolveType(mask, animate, type) {
   return type ?? Array.from(new Set([mask, animate])).join(",");
 }
 
-// --- GSAP official helper (SplitTextAnimator), adapted ---
 function createSplitAnimator(target, splitConfig) {
   const subscribers = [];
   const originalOnSplit = splitConfig.onSplit;
@@ -31,15 +29,15 @@ function createSplitAnimator(target, splitConfig) {
     const onSplit = (instance) => {
       let parent, startTime;
       if (animation) {
-        parent = animation.parent;       // 👈 kon timeline-e ache
-        startTime = animation.startTime(); // 👈 kon position-e ache
-        animation.kill();                // 👈 purono/stub tween shore felo
+        parent = animation.parent;
+        startTime = animation.startTime();
+        animation.kill();
       }
       animation = create?.(instance);
-      if (parent && animation) parent.add(animation, startTime || 0); // 👈 thik shei jaygay notun ta boshiye dao
+      if (parent && animation) parent.add(animation, startTime || 0);
     };
     subscribers.push(onSplit);
-    onSplit(self); // first call — split ready thakle real, na thakle stub
+    onSplit(self);
     return animation;
   };
 
@@ -58,19 +56,21 @@ function buildAnimation(self, options) {
   } = options;
 
   const targets = animate === "words" ? self.words : self.lines;
-  if (!targets.length) return gsap.to({}, { duration: 0 }); // harmless placeholder, split na hoya porjonto
+  if (!targets.length) return gsap.to({}, { duration: 0 });
 
   gsap.set(targets, from);
   onReveal?.(self);
   return gsap.to(targets, { ...to, duration, stagger, ease });
 }
 
-/**
- * Timeline mode — plain function, jekhane khushi call koro:
- * tl.add(createTextReveal(".hero-title"), position)
- */
 export function createTextReveal(selector, options = {}) {
-  const { mask = "lines", animate = "words", type, linesClass = "lineChildren", wordsClass = "word++" } = options;
+  const {
+    mask = "lines",
+    animate = "words",
+    type,
+    linesClass = "lineChildren",
+    wordsClass = "word++",
+  } = options;
 
   const split = createSplitAnimator(selector, {
     type: resolveType(mask, animate, type),
@@ -82,15 +82,20 @@ export function createTextReveal(selector, options = {}) {
   return split.animate((self) => buildAnimation(self, options));
 }
 
-/**
- * Scroll/standalone mode — hook, tomar footer-e already kaj kortese, unchanged.
- */
 export function useTextReveal(selector, options = {}, deps = []) {
   const splitsRef = useRef([]);
 
   useGSAP(
     () => {
-      const { mask = "lines", animate = "words", type, linesClass = "lineChildren", wordsClass = "word++", scroll = false, scrollTrigger } = options;
+      const {
+        mask = "lines",
+        animate = "words",
+        type,
+        linesClass = "lineChildren",
+        wordsClass = "word++",
+        scroll = false,
+        scrollTrigger,
+      } = options;
 
       const elements = gsap.utils.toArray(selector);
       splitsRef.current = [];

@@ -7,7 +7,7 @@ import { useRef } from "react";
 import { SplitText } from "gsap/SplitText";
 import { GSDevTools } from "gsap/all";
 import { createCtaRevealAnimation } from "../Helper/ctaReveal";
-import { createTextReveal, useTextReveal } from "../Helper/wordsAnimation";
+import { createTextReveal } from "../Helper/wordsAnimation";
 gsap.registerPlugin(SplitText, GSDevTools);
 
 export function HeroAnimation({ children, className = "" }) {
@@ -17,10 +17,6 @@ export function HeroAnimation({ children, className = "" }) {
   useGSAP(() => {
     window.scrollTo(0, 0);
 
-    // .nav-img is absolutely positioned outside the header, so its
-    // top/left has to be measured against the real header layout
-    // (px/py/mx, plus max-w-360's mx-auto centering) instead of
-    // being hardcoded — this stays correct at every breakpoint.
     const getLogoTarget = () => {
       const slot = document.querySelector(".nav-logo-slot");
       const navImg = document.querySelector(".nav-img");
@@ -56,8 +52,6 @@ export function HeroAnimation({ children, className = "" }) {
         };
 
         if (hasPlayedRef.current) {
-          // Breakpoint changed after the intro already played —
-          // just resnap the logo, don't replay the whole timeline.
           syncLogoPosition();
         } else {
           gsap.set(".nav-img", {
@@ -93,8 +87,6 @@ export function HeroAnimation({ children, className = "" }) {
             },
             ">-=0.4",
           );
-
-          const endTarget = getLogoTarget() ?? { top: 50, left: 260 };
 
           tl.to(
             ".nav-img",
@@ -173,12 +165,8 @@ export function HeroAnimation({ children, className = "" }) {
             },
             "<",
           );
-
-          // GSDevTools.create({ animation: tl });
         }
 
-        // Keep the logo glued to the header slot on any resize /
-        // orientation change, without replaying the whole intro.
         const handleResize = () => {
           if (hasPlayedRef.current) syncLogoPosition();
         };

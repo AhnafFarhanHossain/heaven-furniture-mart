@@ -38,7 +38,6 @@ export default function TextReveal({
           type: "lines",
           mask: "lines",
           linesClass: "line++",
-          // resize / breakpoint change / font load hole nijei re-split hobe
           autoSplit: true,
           onSplit(self) {
             const splitLines = self.lines as HTMLElement[];
@@ -68,8 +67,6 @@ export default function TextReveal({
               delay,
             };
 
-            // return kora joruri — autoSplit eta manage kore,
-            // porer re-split er age nijei revert/kill kore dey
             if (animateOnScroll) {
               return gsap.to(splitLines, {
                 ...animationProps,

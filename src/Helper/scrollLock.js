@@ -1,4 +1,3 @@
-// Helper/scrollLock.js
 let scrollY = 0;
 
 function preventDefault(e) {

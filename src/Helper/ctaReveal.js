@@ -1,4 +1,3 @@
-// Helper/ctaReveal.js
 import gsap from "./gsap-config";
 
 export function createCtaRevealAnimation(target, { scrollTrigger, paused = false } = {}) {

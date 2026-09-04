@@ -1,13 +1,13 @@
-import { useGSAP } from "@gsap/react";
 import { useTextReveal } from "../Helper/wordsAnimation";
 import gsap from "../Helper/gsap-config";
 import { SplitText } from "gsap/all";
+
 gsap.registerPlugin(SplitText);
 
-
 export default function FooterShowroom() {
+  useTextReveal(".footer-desc", { scroll: true });
 
-  useTextReveal(".footer-desc", { scroll: true });  return (
+  return (
     <footer className="w-full bg-[#F4F1EA] pt-10 sm:pt-14 md:pt-16 pb-0 px-4 sm:px-6 md:px-8 xl:px-12 2xl:px-16 border-[#4A3B31]/15 overflow-hidden">
       <div className="w-full max-w-[1920px] mx-auto flex flex-col lg:flex-row items-stretch lg:items-end justify-between gap-8 lg:gap-4 xl:gap-8">
         <div className="w-full lg:w-60 xl:w-72 2xl:w-80 shrink-0 flex flex-col justify-between py-2 sm:py-4 lg:py-8 space-y-6 sm:space-y-8 lg:space-y-12 order-1 self-stretch">

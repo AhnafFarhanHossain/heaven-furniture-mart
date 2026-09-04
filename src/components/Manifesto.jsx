@@ -2,7 +2,7 @@ import TextReveal from "../Helper/TextReveal";
 
 export default function Manifesto() {
   return (
-    <section className="w-full bg-[#F4F1EA] py-28 md:py-36 2xl:py-44 px-6 md:px-8">
+    <section className="w-full bg-[#F4F1EA] py-12 md:py-28 2xl:py-36 px-6 md:px-8">
       <div className="w-full max-w-5xl mx-auto text-center">
         <TextReveal>
           <h2 className="text-4xl manifesto-italic sm:text-6xl md:text-7xl lg:text-8xl leading-[95%] tracking-tighter text-[#4A3B31] font-light mb-12 md:mb-16">

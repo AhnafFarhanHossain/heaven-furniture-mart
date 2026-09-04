@@ -1,21 +1,18 @@
 import { useRef } from "react";
 import gsap from "../Helper/gsap-config";
 
-const REST_LEN = 11; // shaft length at rest — matches the original path's `h11`
-const HOVER_LEN = 25; // shaft length on hover — tune this until it "almost touches" the text
-const REST_HEAD = 2; // arrowhead vertical reach at rest
-const HOVER_HEAD = 3; // a touch bigger on hover
+const REST_LEN = 11;
+const HOVER_LEN = 25;
+const REST_HEAD = 2;
+const HOVER_HEAD = 3;
 
 function buildArrowPath(len, head) {
-  // Shaft always starts at x=1 (anchored beside the circle) and runs `len`
-  // units right, so the tip sits at 1+len. Lengthening `len` extends the
-  // arrow forward without ever moving its start point.
   return `M1 3 h${len} m-3,${-head} l3,${head} -3,${head}`;
 }
 
-export default function CollectionCta({ href , className = "" }) {
+export default function CollectionCta({ href, className = "" }) {
   const circleRef = useRef(null);
-  const svgRef = useRef(null); // ← new
+  const svgRef = useRef(null);
   const pathRef = useRef(null);
   const proxy = useRef({ len: REST_LEN, head: REST_HEAD });
 

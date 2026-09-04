@@ -59,17 +59,17 @@ export default function VisionTimeline() {
       id="vision"
       className="w-full bg-[#F4F1EA] py-28 md:py-36 2xl:py-44 px-6 md:px-12 2xl:px-16"
     >
-      <div className="w-full max-w-[1440px] 2xl:max-w-[1600px] mx-auto">
+      <div className="w-full mx-auto">
         <div className="w-full mb-20 md:mb-28 space-y-2">
-          <h2 className="font-serif font-extralight left-vision  text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-none tracking-[-8%] text-[#242424] text-left md:pl-[8.5%]">
+          <h2 className="font-serif font-extralight left-vision  text-4xl sm:text-5xl md:text-6xl lg:text-8xl leading-none tracking-[-10%] text-[#242424] text-left md:pl-[8.5%]">
             Our sole purpose is to
           </h2>
-          <h2 className="font-serif font-extralight center-vision text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-none tracking-[-8%] text-[#242424] text-left md:pl-[25.3%]">
+          <h2 className="font-serif font-extralight center-vision text-4xl sm:text-5xl md:text-6xl lg:text-8xl leading-none tracking-[-10%] text-[#242424] text-left md:pl-[25.3%]">
             make sure that your house looks
           </h2>
-          <h2 className="font-serif font-extralight right-vision text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-none tracking-[-8%] text-[#242424] text-left md:pl-[50.7%]">
+          <h2 className="font-serif font-extralight right-vision text-4xl sm:text-5xl md:text-6xl lg:text-8xl leading-none tracking-[-10%] text-[#242424] text-left md:pl-[52.7%]">
             and feels like{" "}
-            <span className="italic font-medium text-[#4A3B31]">home...</span>
+            <span className="italic font-normal text-[#4A3B31]">home</span>
           </h2>
         </div>
 
@@ -91,7 +91,7 @@ export default function VisionTimeline() {
           </div>
 
           <div className="lg:col-span-3 flex justify-start lg:justify-center">
-            <CollectionCta/>
+            <CollectionCta />
           </div>
 
           <div className="lg:col-span-4 flex justify-start lg:justify-end">
