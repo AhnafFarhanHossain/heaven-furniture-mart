@@ -116,8 +116,6 @@ export default function ProductGrid() {
       <section id="products" className="relative w-full bg-[#F4F1EA]">
         <Swiper
           modules={[FreeMode]}
-          // freeMode = continuous drag with momentum, matching the original
-          // scrub feel, instead of snapping hard to each card.
           freeMode={{
             enabled: true,
             momentum: true,
@@ -127,7 +125,7 @@ export default function ProductGrid() {
           slidesPerView="auto"
           spaceBetween={0}
           grabCursor
-          resistanceRatio={0.65} // slight give when you overshoot the first/last card
+          resistanceRatio={0.65}
           onProgress={handleProgress}
           className="!border-t !border-b !border-[#4A3B31]/30"
         >
@@ -189,8 +187,6 @@ export default function ProductGrid() {
           ))}
         </Swiper>
 
-        {/* Progress bar: empty (0) at the start, full color (1) once you've
-          swiped all the way to the last card. */}
         <div className="absolute bottom-0 left-0 w-full h-[3px] bg-[#4A3B31]/15">
           <div
             ref={progressFillRef}
@@ -199,8 +195,6 @@ export default function ProductGrid() {
           />
         </div>
       </section>
-
-      <div className="mb-50"></div>
     </>
   );
 }
